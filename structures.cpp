@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-struct students{
+struct students{ // struct wont take memory if not used in main
     string name;
     int rollNo;
     float marks;
