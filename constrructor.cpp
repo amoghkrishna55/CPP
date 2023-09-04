@@ -1,4 +1,6 @@
-// Write a C++ class called "Rectangle" that has two private member variables: "length" and "width". The class should have a constructor that initializes these member variables and public member functions called "getArea" and "getPerimeter" that return the rectangle's area and perimeter, respectively.
+/*Write a C++ class called "Rectangle" that has two private member variables: "length" and "width". The class should have a constructor that 
+initializes these member variables and public member functions called "getArea" and "getPerimeter" that return the rectangle's area and perimeter, 
+respectively.*/
 
 #include <iostream>
 #include <string>
