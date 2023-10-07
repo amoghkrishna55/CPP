@@ -12,16 +12,16 @@ class Node{
         left = right = NULL;
     }
 
-    // void display(Node* root){
-    //     Node* temp = root;
-    //     if(temp->left==NULL || temp->right==NULL){
-    //         cout << temp->val << "->";
-    //         return;
-    //     }
-    //     cout << temp->val << "->";
-    //     display(temp->left);
-    //     display(temp->right);
-    // }
+    void display(Node* root){
+        Node* temp = root;
+        if(temp->left==NULL || temp->right==NULL){
+            cout << temp->val << "->";
+            return;
+        }
+        cout << temp->val << "->";
+        display(temp->left);
+        display(temp->right);
+    }
 };
 
 int main(){
