@@ -21,8 +21,6 @@ class Square : public Shape{
 
 int main(){
     Square s1(4);
-
     Shape* d = &s1;
-
     cout << d->calculate_area();
 }
