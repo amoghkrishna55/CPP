@@ -14,13 +14,34 @@ class Node{
 
     void display(Node* root){
         Node* temp = root;
-        if(temp->left==NULL || temp->right==NULL){
+        if(temp->left==NULL && temp->right==NULL){
             cout << temp->val << "->";
             return;
         }
         cout << temp->val << "->";
-        display(temp->left);
-        display(temp->right);
+        if(temp->left!=NULL) display(temp->left);
+        if(temp->right!=NULL) display(temp->right);
+    }
+
+    void preOrder(Node* head){
+        if(head==NULL) return;
+        cout << head->val << "->";
+        preOrder(head->left);
+        preOrder(head->right);
+    }
+
+    void inOrder(Node* head){
+        if(head==NULL) return;
+        inOrder(head->left);
+        cout << head->val << "->";
+        inOrder(head->right);
+    }
+
+    void postOrder(Node* head){
+        if(head==NULL) return;
+        postOrder(head->left);
+        postOrder(head->right);
+        cout << head->val << "->";
     }
 };
 
@@ -32,5 +53,12 @@ int main(){
     root->left->right = new Node(5);
     root->right->left = new Node(6);
     root->right->right = new Node(7);
+    //root->left->left->left = new Node(8);
     root->display(root);
+    cout << endl;
+    root->preOrder(root);
+    cout << endl;
+    root->inOrder(root);
+    cout << endl;
+    root->postOrder(root);
 }
