@@ -51,7 +51,6 @@ class Node{
         queue<Node*> q;
         q.push(root);
         q.push(NULL);
-
         while(!q.empty()){
             Node* node = q.front();
             q.pop();
@@ -69,16 +68,67 @@ class Node{
             }
         }
     }
+
+    int levelOrderSum(Node* root, int k) {
+    if(root == NULL || k < 1) {
+        return 0;
+    }
+    queue<Node*> q;
+    q.push(root);
+    int level = 1;
+    int sum = 0;
+    int nodesAtLevel = 1;
+    int nodesAtNextLevel = 0;
+    bool test = false;
+    while(!q.empty()){
+        Node* node = q.front();
+        q.pop();
+        if(node != NULL){
+            if(node->left){
+                q.push(node->left);
+                nodesAtNextLevel++;
+            }
+            if(node->right){
+                q.push(node->right);
+                nodesAtNextLevel++;
+            }
+            if(level == k){
+                sum += node->val;
+            }
+            nodesAtLevel--;
+            if(nodesAtLevel == 0){
+                level++;
+                nodesAtLevel = nodesAtNextLevel;
+                nodesAtNextLevel = 0;
+                test = false;
+            }
+            if(level > k){
+                break;
+            }
+        }
+        else{
+            nodesAtLevel--;
+            if(!q.empty()){
+                q.push(NULL);
+                nodesAtNextLevel++;
+            }
+            if(test){
+                break;
+            }
+        }
+    }
+    return sum;
+}
 };
 
 int main(){
-    Node* root = new Node(1);
-    root->left = new Node(2);
+    Node* root = new Node(5);
+    root->left = new Node(6);
     root->right = new Node(3);
-    root->left->left = new Node(4);
-    root->left->right = new Node(5);
-    root->right->left = new Node(6);
-    root->right->right = new Node(7);
+    root->left->left = new Node(9);
+    root->left->right = new Node(1);
+    root->right->left = new Node(2);
+    root->right->right = new Node(1);
     //root->left->left->left = new Node(8);
     root->display(root);
     cout << endl;
@@ -89,4 +139,5 @@ int main(){
     root->postOrder(root);
     cout << endl;
     root->levelOrder(root);
+    cout << endl << root->levelOrderSum(root,3);
 }
