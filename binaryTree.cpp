@@ -122,13 +122,13 @@ class Node{
 };
 
 int main(){
-    Node* root = new Node(5);
-    root->left = new Node(6);
-    root->right = new Node(3);
-    root->left->left = new Node(9);
-    root->left->right = new Node(1);
-    root->right->left = new Node(2);
-    root->right->right = new Node(1);
+    Node* root = new Node(21);
+    root->left = new Node(15);
+    root->right = new Node(32);
+    root->left->left = new Node(10);
+    root->left->right = new Node(18);
+    root->left->right->left = new Node(17);
+    root->left->right->right = new Node(20);
     //root->left->left->left = new Node(8);
     root->display(root);
     cout << endl;
