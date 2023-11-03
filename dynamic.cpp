@@ -19,4 +19,5 @@ int main(){
     }
     cout << getSum(arr,n);
     delete[] arr;
+    return 0;
 }

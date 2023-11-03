@@ -65,7 +65,7 @@ int count(Node* root){
 //     }
 //     else if(val<root->val){
 //         root->left = deleteInBST(root->left,val);
-//     }
+//     } 
 //     else{
 //         if(root->left==NULL){
 //             Node* temp = root->right;

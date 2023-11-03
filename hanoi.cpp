@@ -9,7 +9,7 @@ void Hanoi(int n, char src, char aux, char dest){
         sum++;
         return;
     }
-    sum++;
+    sum++; 
     Hanoi(n-1,src,dest,aux);
     cout << "Moved disk " << n << " from " << src << " to " << dest << endl;
     Hanoi(n-1,aux,src,dest);
