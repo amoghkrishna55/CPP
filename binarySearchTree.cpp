@@ -59,26 +59,26 @@ int count(Node* root){
     return sum;
 }
 
-// Node* deleteInBST(Node* root, int val){
-//     if(val>root->val){
-//         root->right = deleteInBST(root->right,val);
-//     }
-//     else if(val<root->val){
-//         root->left = deleteInBST(root->left,val);
-//     } 
-//     else{
-//         if(root->left==NULL){
-//             Node* temp = root->right;
-//             delete root;
-//             return temp;
-//         }
-//         else if(root->right==NULL){
-//             Node* temp = root->left;
-//             delete temp;
-//             return temp;
-//         }
-//     }
-// }
+Node* deleteInBST(Node* root, int val){
+    if(val>root->val){
+        root->right = deleteInBST(root->right,val);
+    }
+    else if(val<root->val){
+        root->left = deleteInBST(root->left,val);
+    } 
+    else{
+        if(root->left==NULL){
+            Node* temp = root->right;
+            delete root;
+            return temp;
+        }
+        else if(root->right==NULL){
+            Node* temp = root->left;
+            delete temp;
+            return temp;
+        }
+    }
+}
 
 
 
